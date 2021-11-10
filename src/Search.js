@@ -1,6 +1,18 @@
+import React from "react";
+import axios from "axios";
+
 export default function Search() {
   return (
-    <form id="search-form" className="mb-3">
+ 
+    function handleSubmit(event){
+        event.preventDefault();
+        let apiKey = "b6a67f67579bcd300971f2f49b91d214";
+        let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showWeather);
+    }
+
+
+    <form id="search-form" className="mb-3" onSubmit={handleSubmit}>
       <div className="row">
         <div className="col-9">
           <input
@@ -30,5 +42,6 @@ export default function Search() {
         </div>
       </div>
     </form>
+    
   );
 }
