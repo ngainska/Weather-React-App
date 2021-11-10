@@ -1,4 +1,5 @@
 import Data from "./Data";
+//import axios from "axios";
 
 export default function Temperature(props) {
   return (
