@@ -1,7 +1,5 @@
 import React from "react";
-import Search from "./Search";
-import City from "./City";
-import Temperature from "./Temperature";
+import Weather from "./Weather";
 import Music from "./Music";
 import Footer from "./Footer";
 import './App.css';
@@ -13,9 +11,7 @@ function App() {
         <div className="background">
           <div className="weather-app-wrapper">
             <div className="weather-app" id="weather-app">
-              <Search />
-              <City city="Glasgow, UK" />
-              <Temperature temp={8} />
+              <Weather city="Glasgow,UK" temp={8}/>
               <Music />
             </div>
             <Footer />
