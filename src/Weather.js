@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import Forecast from "./Forecast";
 
 
 export default function Weather(props) {
@@ -11,6 +12,8 @@ let [weather,setWeather] = useState({});
 function showWeather(response){
   setWeatherUpdate(true);
   setWeather({
+    coordinateslat: (response.data.coord.lat),
+     coordinateslon: (response.data.coord.lon),
     temperature: (Math.round(response.data.main.temp)),
      humidity:(response.data.main.humidity),
      wind:(Math.round(response.data.wind.speed)),
@@ -116,6 +119,7 @@ function updateCity(event) {
       </ul>
     </div>
     </div>
+    <Forecast lat={weather.coordinateslat} lon={weather.coordinateslon}/>
     </div>);
   } else {
     return (<div>
