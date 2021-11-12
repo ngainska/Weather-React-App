@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
-import Forecast from "./Forecast";
+//import Forecast from "./Forecast";
 
 
 export default function Weather(props) {
@@ -12,8 +12,8 @@ let [weather,setWeather] = useState({});
 function showWeather(response){
   setWeatherUpdate(true);
   setWeather({
-    coordinateslat: (response.data.coord.lat),
-     coordinateslon: (response.data.coord.lon),
+    //coordinateslat: (response.data.coord.lat),
+     //coordinateslon: (response.data.coord.lon),
     temperature: (Math.round(response.data.main.temp)),
      humidity:(response.data.main.humidity),
      wind:(Math.round(response.data.wind.speed)),
@@ -119,7 +119,6 @@ function updateCity(event) {
       </ul>
     </div>
     </div>
-    <Forecast lat={weather.coordinateslat} lon={weather.coordinateslon}/>
     </div>);
   } else {
     return (<div>
@@ -133,7 +132,6 @@ function updateCity(event) {
             id="city-input"
             autoComplete="off"
             autoFocus="on"
-            onChange={updateCity}
           />
         </div>
         <div className="col-3">
@@ -159,13 +157,13 @@ function updateCity(event) {
     <div className="overview">
       <div className="row">
         <div className="col-6" id="main">
-          <h1 id="city">{weather.mainCity}</h1>
+          <h1 id="city">{props.city}</h1>
 
           <ul>
             <li>
-              Last updated: <span id="date"></span>
+              Last updated: <span id="date">Now</span>
             </li>
-            <li id="main-description">{weather.description}</li>
+            <li id="main-description">Partially cloudy</li>
           </ul>
         </div>
       </div>
@@ -181,7 +179,7 @@ function updateCity(event) {
             className="float-left"
           />
           <div className="float-left">
-            <strong id="main-temp">{weather.temperature}</strong>
+            <strong id="main-temp">{props.temp}</strong>
             <span className="units">°C | °F</span>
           </div>
         </div>
@@ -190,14 +188,14 @@ function updateCity(event) {
     <div className="col-5">
       <ul>
         <li>
-          High/Low: <span id="high">{weather.maxCelsius}</span>°/
-          <span id="low">{weather.minCelsius}</span>°
+          High/Low: <span id="high">12</span>°/
+          <span id="low">5</span>°
         </li>
         <li>
-          Humidity: <span id="humidity">{weather.humidity}</span>%
+          Humidity: <span id="humidity">12</span>%
         </li>
         <li>
-          Wind: <span id="wind">{weather.wind}</span> Km/h
+          Wind: <span id="wind">3</span> Km/h
         </li>
       </ul>
     </div>
