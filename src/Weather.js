@@ -14,6 +14,7 @@ function showWeather(response){
   setWeather({
     //coordinateslat: (response.data.coord.lat),
      //coordinateslon: (response.data.coord.lon),
+     //musicdata: (response.data.weather[0].main),
     temperature: (Math.round(response.data.main.temp)),
      humidity:(response.data.main.humidity),
      wind:(Math.round(response.data.wind.speed)),

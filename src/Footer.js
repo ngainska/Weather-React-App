@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <small>
       <a
-        href="https://github.com/rachelfras/weather-app-react"
+        href="https://github.com/ngainska/Weather-React-App"
         target="_blank"
         rel="noreferrer"
       >
